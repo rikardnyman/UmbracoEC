@@ -1,0 +1,74 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.StorySection)Model.Content;
+
+    var items = content.SuccessItem;
+}
+
+<section class="pt-[6rem]">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col gap-6 items-center text-center">
+            <h2 class="text-[2.5rem] font-bold text-primary">@content.StoryTitle</h2>
+            <div class="rte max-w-3xl">
+                @Html.Raw(content.StoryDescription)
+            </div>
+            @if (content.StoryLink != null)
+            {
+                <a class="bg-primary cursor-pointer no-underline rounded py-3 px-10 text-white items-center font-bold mt-3"
+                   href="@content.StoryLink.Url">
+                    @content.StoryLink.Name
+                </a>
+            }
+        </div>
+        <div class="w-full relative">
+            <img src="~/images/DotmapStory.svg" alt="">    
+            <div class="absolute bottom-0">
+                @if (content.StoryImage != null)
+                {
+                    <img src="@content.StoryImage?.Url()" alt="@content.StoryImage?.Name" />
+                }
+            </div>
+        </div>
+	</div>
+</section>
+
+<section class="pb-[10rem] bg-primary relative">
+    <div class="flex flex-col items-center justify-center text-center">
+
+        <img src="~/images/DotmapSuccess.svg"
+             alt=""
+             class="absolute inset-y-20 max-w-[50%] h-full pointer-events-none" />
+
+        <div class="relative py-[4rem] z-[1]">
+            <span class="text-secondary font-bold block">@content.SuccessLabel</span>
+            <h2 class="text-white text-[2rem] font-bold">@content.SuccessTitle</h2>
+        </div>
+
+        <div class="relative z-[1]">
+            @if (items != null && items.Any())
+            {
+                <div class="flex flex-wrap justify-center gap-16">
+                    @foreach (var block in items)
+                    {
+                        var item = (ContentModels.SuccessItem)block.Content;
+                        <div class="flex flex-col items-center text-center">
+                            <div class="text-[5rem] font-bold text-secondary">@item.SuccessTitle</div>
+                            <p class="text-white text-base max-w-xs">@item.SuccessDescription</p>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+
+    </div>
+</section>
+@if (content.SuccessImage != null)
+{
+    <div class="relative z-[20] flex justify-center -mt-[8rem] mb-[-3rem]">
+        <img src="@content.SuccessImage.Url()"
+             alt="@content.SuccessImage.Name"
+             class="shadow-2xl max-w-[970px] w-full h-auto object-cover" />
+    </div>
+}
