@@ -14,6 +14,98 @@
       },
       "items": [
         {
+          "label": "Headings",
+          "items": [
+            {
+              "label": "H1",
+              "items": [
+                {
+                  "label": "Light",
+                  "data": {
+                    "tag": "h1",
+                    "class": "text-rte-h1 font-light"
+                  },
+                  "appearance": {}
+                },
+                {
+                  "label": "Normal",
+                  "data": {
+                    "tag": "h1",
+                    "class": "text-rte-h1 font-regular"
+                  },
+                  "appearance": {}
+                },
+                {
+                  "label": "Bold",
+                  "data": {
+                    "tag": "h1",
+                    "class": "text-rte-h1 font-bold"
+                  },
+                  "appearance": {}
+                }
+              ]
+            },
+            {
+              "label": "H2",
+              "items": [
+                {
+                  "label": "Light",
+                  "data": {
+                    "tag": "h2",
+                    "class": "text-rte-h2 font-light"
+                  },
+                  "appearance": {}
+                },
+                {
+                  "label": "Normal",
+                  "data": {
+                    "tag": "h2",
+                    "class": "text-rte-h2 font-regular"
+                  },
+                  "appearance": {}
+                },
+                {
+                  "label": "Bold",
+                  "data": {
+                    "tag": "h2",
+                    "class": "text-rte-h2 font-bold"
+                  },
+                  "appearance": {}
+                }
+              ]
+            },
+            {
+              "label": "H3",
+              "items": [
+                {
+                  "label": "Light",
+                  "data": {
+                    "tag": "h3",
+                    "class": "text-rte-h3 font-light"
+                  },
+                  "appearance": {}
+                },
+                {
+                  "label": "Normal",
+                  "data": {
+                    "tag": "h3",
+                    "class": "text-rte-h3 font-regular"
+                  },
+                  "appearance": {}
+                },
+                {
+                  "label": "Bold",
+                  "data": {
+                    "tag": "h3",
+                    "class": "text-rte-h3 font-bold"
+                  },
+                  "appearance": {}
+                }
+              ]
+            }
+          ]
+        },
+        {
           "label": "Paragraphs",
           "items": [
             {
@@ -169,6 +261,43 @@
             "tag": "ul",
             "class": "rte-ul"
           }
+        },
+        {
+          "label": "Images",
+          "items": [
+            {
+              "label": "Default",
+              "data": {
+                "tag": "img",
+                "class": "rte-img mx-auto max-w-[200px] h-auto"
+              },
+              "appearance": {}
+            },
+            {
+              "label": "Left aligned",
+              "data": {
+                "tag": "img",
+                "class": "rte-img float-left mr-6 mb-4 max-w-[200px]"
+              },
+              "appearance": {}
+            },
+            {
+              "label": "Right aligned",
+              "data": {
+                "tag": "img",
+                "class": "rte-img float-right ml-6 mb-4 max-w-[200px]"
+              },
+              "appearance": {}
+            },
+            {
+              "label": "Full width",
+              "data": {
+                "tag": "img",
+                "class": "rte-img w-full h-auto my-4"
+              },
+              "appearance": {}
+            }
+          ]
         }
       ]
     },

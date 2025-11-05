@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Call Back Section</summary>
-	[PublishedModel("callBackSection")]
-	public partial class CallBackSection : PublishedElementModel
+	/// <summary>About Section</summary>
+	[PublishedModel("aboutSection")]
+	public partial class AboutSection : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		public new const string ModelTypeAlias = "callBackSection";
+		public new const string ModelTypeAlias = "aboutSection";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
@@ -34,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<CallBackSection, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<AboutSection, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public CallBackSection(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public AboutSection(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,107 +50,83 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Dropdown Menu
+		/// About Company Section 2
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackFormDropdownMenu")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> CallBackFormDropdownMenu => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "callBackFormDropdownMenu");
+		[ImplementPropertyType("aboutCompanySection2")]
+		public virtual string AboutCompanySection2 => this.Value<string>(_publishedValueFallback, "aboutCompanySection2");
 
 		///<summary>
-		/// Email
+		/// About Heading
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackFormEmail")]
-		public virtual string CallBackFormEmail => this.Value<string>(_publishedValueFallback, "callBackFormEmail");
+		[ImplementPropertyType("aboutHeading")]
+		public virtual string AboutHeading => this.Value<string>(_publishedValueFallback, "aboutHeading");
 
 		///<summary>
-		/// Label
+		/// About Heading Section 2
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackFormLabel")]
-		public virtual string CallBackFormLabel => this.Value<string>(_publishedValueFallback, "callBackFormLabel");
+		[ImplementPropertyType("aboutHeadingSection2")]
+		public virtual string AboutHeadingSection2 => this.Value<string>(_publishedValueFallback, "aboutHeadingSection2");
 
 		///<summary>
-		/// Name
+		/// About Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackFormName")]
-		public virtual string CallBackFormName => this.Value<string>(_publishedValueFallback, "callBackFormName");
+		[ImplementPropertyType("aboutImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops AboutImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "aboutImage");
 
 		///<summary>
-		/// Phone
+		/// About Image Section 2
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackFormPhone")]
-		public virtual string CallBackFormPhone => this.Value<string>(_publishedValueFallback, "callBackFormPhone");
+		[ImplementPropertyType("aboutImageSection2")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops AboutImageSection2 => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "aboutImageSection2");
 
 		///<summary>
-		/// Text
+		/// About Image Underline
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackFormText")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString CallBackFormText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "callBackFormText");
+		[ImplementPropertyType("aboutImageUnderline")]
+		public virtual string AboutImageUnderline => this.Value<string>(_publishedValueFallback, "aboutImageUnderline");
 
 		///<summary>
-		/// Label
+		/// About Label Section 2
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackLabel")]
-		public virtual string CallBackLabel => this.Value<string>(_publishedValueFallback, "callBackLabel");
+		[ImplementPropertyType("aboutLabelSection2")]
+		public virtual string AboutLabelSection2 => this.Value<string>(_publishedValueFallback, "aboutLabelSection2");
 
 		///<summary>
-		/// Name
+		/// About Name Section 2
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackPersonName")]
-		public virtual string CallBackPersonName => this.Value<string>(_publishedValueFallback, "callBackPersonName");
+		[ImplementPropertyType("aboutNameSection2")]
+		public virtual string AboutNameSection2 => this.Value<string>(_publishedValueFallback, "aboutNameSection2");
 
 		///<summary>
-		/// Role
+		/// About Text
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackPersonRole")]
-		public virtual string CallBackPersonRole => this.Value<string>(_publishedValueFallback, "callBackPersonRole");
+		[ImplementPropertyType("aboutText")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString AboutText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "aboutText");
 
 		///<summary>
-		/// Signature Image
+		/// About Text Section 2
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackSignatureImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops CallBackSignatureImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "callBackSignatureImage");
-
-		///<summary>
-		/// Subtitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackSubtitle")]
-		public virtual string CallBackSubtitle => this.Value<string>(_publishedValueFallback, "callBackSubtitle");
-
-		///<summary>
-		/// Text
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackText")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString CallBackText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "callBackText");
-
-		///<summary>
-		/// Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("callBackTitle")]
-		public virtual string CallBackTitle => this.Value<string>(_publishedValueFallback, "callBackTitle");
+		[ImplementPropertyType("aboutTextSection2")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString AboutTextSection2 => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "aboutTextSection2");
 	}
 }
