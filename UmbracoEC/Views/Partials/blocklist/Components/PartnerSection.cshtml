@@ -1,28 +1,27 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoEC.ViewModels
 @{
     var content = (ContentModels.PartnerSection)Model.Content;
     var items = content.PartnerItem;
 }
 
-<section class="pt-[6rem] pb-[6rem] bg-[#ffffff]">
-    <div class="max-w-7xl mx-auto px-4">
-        @if (items != null && items.Any())
-        {
-            <div class="flex flex-wrap justify-center gap-16">
-                @foreach (var block in items)
-                {
-                    var item = (ContentModels.PartnerItem)block.Content;
-                    <div class="flex flex-col items-center text-center">
-                        @if (item.PartnerImage != null)
-                        {
-                            <img src="@item.PartnerImage.Url()"
-                                 alt="@item.PartnerName"
-                                 class="w-[150px] h-auto object-contain opacity-90 hover:opacity-100 transition" />
-                        }
-                    </div>
-                }
-            </div>
-        }
+<section>
+    <div class="container">
+        <div class="py-22">
+            @if (items != null && items.Any())
+            {
+                <div class="flex flex-wrap justify-center gap-16 py-10">
+                    @foreach (var partner in items)
+                    {
+                        var item = (ContentModels.PartnerItem)partner.Content;
+                        <div class="flex flex-row items-center">
+                            <img class="" src="@item.PartnerImage?.Url()" alt="@item.PartnerImage?.Name"/>
+                            
+                        </div>
+                    }
+				</div>
+            }
+        </div>
     </div>
 </section>
