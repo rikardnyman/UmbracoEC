@@ -39,6 +39,7 @@
     --default-mono-font-family: var(--font-mono);
     --color-neutral: #ffffff;
     --color-white-100: #F7F7F7;
+    --color-dark: #0E0E0E;
     --color-primary: #4F5955;
     --color-main-light: #606966;
     --color-accent: #F2EDDC;
@@ -252,23 +253,11 @@
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
-  .-z-10 {
-    z-index: calc(10 * -1);
-  }
-  .z-0 {
-    z-index: 0;
-  }
   .z-10 {
     z-index: 10;
   }
-  .z-20 {
-    z-index: 20;
-  }
   .z-\[-1\] {
     z-index: -1;
-  }
-  .z-\[-2\] {
-    z-index: -2;
   }
   .z-\[1\] {
     z-index: 1;
@@ -375,9 +364,6 @@
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
-  .h-5 {
-    height: calc(var(--spacing) * 5);
-  }
   .h-\[220px\] {
     height: 220px;
   }
@@ -389,9 +375,6 @@
   }
   .max-h-\[20px\] {
     max-height: 20px;
-  }
-  .max-h-\[400px\] {
-    max-height: 400px;
   }
   .max-h-\[600px\] {
     max-height: 600px;
@@ -413,9 +396,6 @@
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
-  }
-  .w-5 {
-    width: calc(var(--spacing) * 5);
   }
   .w-5\/12 {
     width: calc(5/12 * 100%);
@@ -440,9 +420,6 @@
   }
   .max-w-7xl {
     max-width: var(--container-7xl);
-  }
-  .max-w-\[5px\] {
-    max-width: 5px;
   }
   .max-w-\[20px\] {
     max-width: 20px;
@@ -573,6 +550,9 @@
   .bg-border-gray {
     background-color: var(--color-border-gray);
   }
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
   .bg-green-100 {
     background-color: var(--color-green-100);
   }
@@ -630,6 +610,12 @@
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
+  }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
@@ -638,9 +624,6 @@
   }
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
-  }
-  .py-20 {
-    padding-block: calc(var(--spacing) * 20);
   }
   .py-22 {
     padding-block: calc(var(--spacing) * 22);
@@ -662,9 +645,6 @@
   }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
-  }
-  .pt-6 {
-    padding-top: calc(var(--spacing) * 6);
   }
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
@@ -820,9 +800,6 @@
   }
   .no-underline {
     text-decoration-line: none;
-  }
-  .opacity-90 {
-    opacity: 90%;
   }
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
