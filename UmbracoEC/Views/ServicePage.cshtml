@@ -1,9 +1,15 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServicePage>
+
 @{
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
 }
 
-<partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model"/>
+<partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model" />
 
 @Html.GetBlockListHtml(Model.Sections)
+
+@if (Model.ContactSection != null)
+{
+    @await Html.PartialAsync("Partials/Components/ContactSection", Model.ContactSection)
+}
