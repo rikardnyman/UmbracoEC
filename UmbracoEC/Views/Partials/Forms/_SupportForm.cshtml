@@ -1,0 +1,43 @@
+﻿@using UmbracoEC.ViewModels
+@model SupportFormViewModel
+
+@{
+    Html.ViewData.TemplateInfo.HtmlFieldPrefix = "support";
+}
+
+@using (Html.BeginUmbracoForm("HandleSupportForm", "Support", FormMethod.Post, new { novalidate = "novalidate", id = "supportForm" }))
+
+{
+    <div class="px-[2rem] flex flex-col gap-6 pb-6 items-center">
+
+        <div class="relative">
+
+            <label for="Email" class="sr-only"></label>
+
+            <input asp-for="Email"
+                   type="text"
+                   placeholder="@Html.DisplayNameFor(x => x.Email)"
+                   class="text-notel bg-white-100 p-3 italic rounded-md border border-gray-300
+                      focus:ring-2 focus:ring-primary focus:outline-none" />
+
+            <i class="fa-regular fa-envelope
+                  absolute
+                  right-4
+                  top-1/2
+                  -translate-y-1/2
+                  text-gray-600
+                  pointer-events-none
+                  bg-white-100
+                  px-1"></i>
+
+        </div>
+            <span asp-validation-for="Email"
+                  class="w-full text-center font-semibold text-red-600 text-sm pt-1 block"></span>
+
+        <button type="submit"
+                class="bg-secondary p-2 rounded w-full cursor-pointer z-10 hover:bg-accent">
+            Submit
+        </button>
+
+    </div>
+}
