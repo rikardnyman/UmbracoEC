@@ -5,3 +5,8 @@
 }
 <partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model" />
 @Html.GetBlockListHtml(Model.Sections)
+
+@if (Model.ContactSection != null)
+{
+	@await Html.PartialAsync("Partials/Components/ContactSection", Model.ContactSection)
+}

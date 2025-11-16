@@ -1,21 +1,56 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoEC.ViewModels
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServiceDetail>
+
 @{
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
+    var servicesPage = Model.Parent as ServicePage;
 }
 
 <partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model" />
 
+
 <section class="py-16">
-	<div class="max-w-7xl mx-auto px-4">
-		<div class="flex flex-row justify-between">
-			<aside class="w-3/12 flex flex-col gap-4">
-				@Html.GetBlockListHtml(Model.ServiceDetailAsides)
-			</aside>
-			<div class="block w-px bg-border-gray"></div>
-			<div class="w-8/12 flex flex-col gap-2">
-			<div class="rte">@Html.Raw(Model.ServiceDetailBody)</div>
-			</div>
-		</div>
-	</div>
+    <div class="max-w-7xl mx-auto px-4 flex gap-10">
+        <aside class="w-3/12 flex flex-col gap-6 pr-10 border-r-2 border-accent">
+            @Html.GetBlockListHtml(Model.ServiceDetailAsides)
+        </aside>
+
+        <div class="flex flex-col">
+
+            @if (Model.ServiceDetailThumbnail != null)
+            {
+                <img src="@Model.ServiceDetailThumbnail.Url()"
+                     class="max-w-[750px] h-[350px] object-cover rounded mb-10" />
+            }
+
+            <div class="block w-px bg-border-gray"></div>
+
+            <div class="w-8/12 flex flex-col gap-6">
+
+               
+
+                <div class="rte">@Html.Raw(Model.ServiceDetailBody)</div>
+            </div>
+        </div>
+
+        
+        
+    </div>
 </section>
+
+<section>
+    <div class="container">
+        @await Html.PartialAsync("Partials/Components/QuestionSection", new QuestionFormViewModel())
+    </div>
+</section>
+
+
+@if (servicesPage?.ContactSection != null)
+{
+    @await Html.PartialAsync("Partials/Components/ContactSection", servicesPage.ContactSection)
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
