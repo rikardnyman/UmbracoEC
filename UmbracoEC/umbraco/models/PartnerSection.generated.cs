@@ -18,9 +18,19 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
+	// Mixin Content Type with alias "partnerSection"
+	/// <summary>Partner Section</summary>
+	public partial interface IPartnerSection : IPublishedElement
+	{
+		/// <summary>Partner Item</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.Blocks.BlockListModel PartnerItem { get; }
+	}
+
 	/// <summary>Partner Section</summary>
 	[PublishedModel("partnerSection")]
-	public partial class PartnerSection : PublishedElementModel
+	public partial class PartnerSection : PublishedElementModel, IPartnerSection
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -55,6 +65,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("partnerItem")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel PartnerItem => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "partnerItem");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel PartnerItem => GetPartnerItem(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Partner Item</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListModel GetPartnerItem(IPartnerSection that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(publishedValueFallback, "partnerItem");
 	}
 }

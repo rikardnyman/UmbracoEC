@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Contact Page</summary>
 	[PublishedModel("contactPage")]
-	public partial class ContactPage : PublishedContentModel, IPageHeader
+	public partial class ContactPage : PublishedContentModel, IPageHeader, IPartnerSection
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,12 +50,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// ContactSection
+		/// ContactSectionPicker
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("contactSection")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent ContactSection => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "contactSection");
+		[ImplementPropertyType("contactSectionPicker")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent ContactSectionPicker => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "contactSectionPicker");
 
 		///<summary>
 		/// Sections
@@ -72,5 +72,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("pageTitle")]
 		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageHeader.GetPageTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Partner Item
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("partnerItem")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel PartnerItem => global::Umbraco.Cms.Web.Common.PublishedModels.PartnerSection.GetPartnerItem(this, _publishedValueFallback);
 	}
 }
