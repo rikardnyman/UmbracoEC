@@ -50,21 +50,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-<<<<<<< HEAD
 		/// ContactSectionPicker
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("contactSectionPicker")]
 		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent ContactSectionPicker => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "contactSectionPicker");
-=======
-		/// ContactSection
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("contactSection")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent ContactSection => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "contactSection");
->>>>>>> origin/main
 
 		///<summary>
 		/// Sections
