@@ -1,8 +1,35 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoEC.ViewModels
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContactPage>
+
 @{
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
 }
 
 <partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model" />
 
+@if (Model.ContactSection != null)
+{
+    @await Html.PartialAsync("Partials/Components/ContactSection", Model.ContactSection)
+}
+
+<section class="relative w-full">
+
+
+    <img src="~/images/map.svg"
+         alt="Map"
+         class=" w-full h-full object-cover" />
+
+
+    <div class="absolute inset-0 flex items-center w-full justify-center px-4 py-20">
+
+        @await Html.PartialAsync(
+            "Partials/Components/CallbackSectionLarge",
+            new CallbackFormViewModel()
+        )
+
+    </div>
+
+</section>
+
+@Html.GetBlockListHtml(Model.Sections)

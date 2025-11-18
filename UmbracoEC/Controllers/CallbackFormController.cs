@@ -11,10 +11,22 @@ using UmbracoEC.ViewModels;
 
 namespace UmbracoEC.Controllers
 {
-    public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider, FormSubmissionsService formSubmissions) : SurfaceController(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
+    public class CallbackController : SurfaceController
     {
-        private readonly FormSubmissionsService _formSubmissions = formSubmissions;
+        private readonly FormSubmissionsService _formSubmissions;
 
+        public CallbackController(
+            IUmbracoContextAccessor ctx,
+            IUmbracoDatabaseFactory db,
+            ServiceContext services,
+            AppCaches appCaches,
+            IProfilingLogger profiler,
+            IPublishedUrlProvider urls,
+            FormSubmissionsService formSubmissions)
+            : base(ctx, db, services, appCaches, profiler, urls)
+        {
+            _formSubmissions = formSubmissions;
+        }
 
         public IActionResult HandleCallbackForm(CallbackFormViewModel model)
         {
@@ -33,5 +45,9 @@ namespace UmbracoEC.Controllers
             TempData["FormSuccess"] = "Thank you! Your request has been received and we will get back to you soon";
             return RedirectToCurrentUmbracoPage();
         }
+
+
     }
+
+
 }

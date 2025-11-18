@@ -1,51 +1,47 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactSection>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-@using UmbracoEC.ViewModels
-@{
-    var content = (ContentModels.ContactSection)Model.Content;
-    
-}
+
 
 <section class="bg-white-100 pt-8">
     <div class="container">
-        <div class="flex flex-row justify-between items-center">       
-            <div class="relative w-1/2 flex ">
+        <div class="flex flex-row justify-between items-center">
+            <div class="relative w-1/2 flex">
                 <img src="~/images/ContactBgImage.svg"
                      alt=""
                      class="absolute bottom-0 left-0 w-full max-h-[600px]" />
 
-                @if (content.ContactImage != null)
+                @if (Model.ContactImage != null)
                 {
-                    <img src="@content.ContactImage?.Url()"
-                         alt="@content.ContactImage?.Name"
+                    <img src="@Model.ContactImage?.Url()"
+                         alt="@Model.ContactImage?.Name"
                          class="w-full max-w-[450px] object-contain z-[10]" />
                 }
             </div>
-       
+
             <div class="w-1/2 flex flex-col gap-6 pl-10">
-                <h2 class="font-bold text-[3rem]">@content.ContactHeading</h2>
+                <h2 class="font-bold text-[3rem]">@Model.ContactHeading</h2>
 
                 <div class="flex flex-col gap-2">
                     <div class="flex flex-row items-center gap-2">
                         <img class="max-w-[20px] max-h-[20px] object-contain" src="~/images/IconLocation.svg" />
                         <span class="font-semibold">Office location</span>
                     </div>
-                    <span class="ml-8 mb-6">@content.ContactLocation</span>
+                    <span class="ml-8 mb-6">@Model.ContactLocation</span>
 
                     <div class="flex flex-row items-center gap-2">
                         <img class="max-w-[20px] max-h-[20px] object-contain" src="~/images/IconPhone.svg" />
                         <span class="font-semibold">Phone number</span>
                     </div>
-                    <span class="ml-8 mb-6">@content.ContactPhone</span>
+                    <span class="ml-8 mb-6">@Model.ContactPhone</span>
 
                     <div class="flex flex-row items-center gap-2">
                         <img class="max-w-[20px] max-h-[20px] object-contain" src="~/images/IconEmail.svg" />
                         <span class="font-semibold">E-mail address</span>
                     </div>
-                    <span class="ml-8 mb-6">@content.ContactEmail</span>
+                    <span class="ml-8 mb-6">@Model.ContactEmail</span>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
+

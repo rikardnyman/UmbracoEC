@@ -1,54 +1,59 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-@using UmbracoEC.ViewModels
+@using UmbracoEC.ViewModels;
+
 @{
     var content = (ContentModels.AboutCallbackSection)Model.Content;
     var settings = Model.Settings as ContentModels.AboutCallbackSettings;
 
-
     var formVM = new CallbackFormViewModel
     {
-    Options = settings?.CallbackRequestOptions ?? []
-
+        Options = settings?.CallbackRequestOptions ?? []
     };
-
-
 }
 
-<section class="py-28">
-    <div class="max-w-7xl mx-auto px-4 flex gap-10">
+<section>
+    <div class="container flex">
 
-        <div class="flex flex-col w-7/12">
-            <div class="rte">
-                @Html.Raw(content.AboutCallbackSectionBody)
-            </div>
+
+        <div class="rte py-[1.5rem] px-[2rem] w-3/4">
+            @Html.Raw(content.AboutCallbackSectionBody)
         </div>
 
-        <div class="flex flex-col w-5/12 shadow-md -mt-[11rem] z-[99] bg-white-100">
+        <div class="callback-about-wrapper shadow-md bg-white-100">
+
             <div class="bg-primary">
-                <p class="text-accent py-[1.5rem] px-[2rem] text-[1.875rem] font-bold">@content.AboutCallbackFormTitle</p>
+                <p class="text-accent py-[1.5rem] px-[2rem] text-[1.875rem] font-bold">
+                    @content.AboutCallbackFormTitle
+                </p>
             </div>
-            <p class="text-sm py-[1.5rem] px-[2rem] italic">@content.AboutCallbackFormDescription</p>
 
-            <partial name="Partials/Forms/_CallbackForm" model="formVM"/> 
+            <p class="text-sm py-[1.5rem] px-[2rem] italic">
+                @content.AboutCallbackFormDescription
+            </p>
 
-            @if (TempData["FormSuccess"] !=null)
+            @using (Html.BeginUmbracoForm("HandleCallbackForm", "Callback", FormMethod.Post, new { novalidate = "novalidate" }))
             {
+                <div class="px-[2rem] py-[2rem] flex flex-col gap-6 w-full">
 
-            <div class="bg-green-100 text-green-700 p-4 mx-[2rem] mb-4 rounded-md">
-                @TempData["FormSuccess"]
+                    @await Html.PartialAsync("Partials/Forms/_CallbackForm", formVM)
                 </div>
+            }
 
+            @if (TempData["FormSuccess"] != null)
+            {
+                <div class="bg-green-100 text-green-700 p-4 mx-[2rem] mb-4 rounded-md">
+                    @TempData["FormSuccess"]
+                </div>
             }
             else if (TempData["FormError"] != null)
             {
-                
-            <div class="bg-red-100 text-red-700 p-4 mx-[2rem] mb-4 rounded-md">
-                @TempData["FormError"]
-            </div>
+                <div class="bg-red-100 text-red-700 p-4 mx-[2rem] mb-4 rounded-md">
+                    @TempData["FormError"]
+                </div>
             }
 
         </div>
-
     </div>
+
 </section>

@@ -1,10 +1,103 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @using UmbracoEC.ViewModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServicePage>
+
 @{
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
 }
 
-<partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model"/>
+
+<partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model" />
+
 
 @Html.GetBlockListHtml(Model.Sections)
+
+
+@{
+    
+    var allServices = Model.Children<ServiceDetail>()?.ToList();
+
+    int pageSize = 6;
+    var query = Context.Request.Query;
+
+    int currentPage = 1;
+    if (query.ContainsKey("page"))
+    {
+        int.TryParse(query["page"], out currentPage);
+    }
+
+    int totalItems = allServices.Count;
+    int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+
+    var pagedServices = allServices
+        .Skip((currentPage - 1) * pageSize)
+        .Take(pageSize)
+        .ToList();
+}
+
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-center pb-10">@Model.ServiceHeading</h2>
+        <div class="grid grid-cols-3 gap-6">
+            @foreach (var service in pagedServices)
+            {
+                <a href="@service.Url()" class="shadow p-4 rounded block">
+                    <h3 class="font-semibold text-xl">@service.PageTitle</h3>
+
+                    @if (service.ServiceDetailThumbnail != null)
+                    {
+                        <img src="@service.ServiceDetailThumbnail.Url()"
+                             class="w-full h-[220px] object-cover mt-3" />
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(service.ServiceDetailExcerpt))
+                    {
+                        <p class="text-gray-500 mt-3">
+                            @service.ServiceDetailExcerpt
+                        </p>
+                    }
+                </a>
+            }
+
+        </div>
+
+        @if (totalPages > 1)
+        {
+            <div class="flex justify-center items-center gap-6 mt-8 text-gray-500">
+
+                @(currentPage > 1
+                            ? Html.Raw($"<a href='?page={currentPage - 1}' class='hover:text-primary'>Prev</a>")
+                            : Html.Raw("<span class='opacity-40'>Prev</span>")
+                            )
+
+            <div class="flex gap-3">
+                @for (int i = 1; i <= totalPages; i++)
+                    {
+                        if (i == currentPage)
+                        {
+                            <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-800 font-semibold">@i</span>
+                        }
+                        else
+                        {
+                            <a href="?page=@i" class="px-3 py-1 hover:text-primary">@i</a>
+                        }
+                    }
+            </div>
+
+            @(currentPage < totalPages
+                        ? Html.Raw($"<a href='?page={currentPage + 1}' class='hover:text-primary'>Next</a>")
+                        : Html.Raw("<span class='opacity-40'>Next</span>")
+                        )
+
+        </div>
+                }
+
+    </div>
+</section>
+
+
+
+@if (Model.ContactSection != null)
+{
+    @await Html.PartialAsync("Partials/Components/ContactSection", Model.ContactSection)
+}

@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoEC.ViewModels
+@{
+    var content = (ContentModels.SupportCard)Model.Content;
+	var formVM = new SupportFormViewModel();
+}
+
+<div class="flex flex-col gap-4 bg-primary relative overflow-hidden p-6 mt-8 rounded w-full">
+    <img src="~/images/MailImage.svg"
+         alt="Mail Image"
+         class="
+        absolute
+        right-[-2rem]
+        bottom-[-4rem]
+        w-[140%]
+        object-contain
+        pointer-events-none
+        z-0
+     " />
+
+    <h2 class="text-secondary text-[1.375rem] font-semibold mt-2">@content.SupportLabel</h2>
+
+    <p class="text-white text-[0.875rem] font-normal">@content.SupportDescription</p>
+
+    <div class="w-full">
+        @await Html.PartialAsync("Partials/Forms/_SupportForm", formVM)
+    </div>
+
+    @if (TempData["FormSuccess"] != null)
+    {
+        <div class="bg-green-100 text-green-700 p-4 mt-2 rounded-md">
+            @TempData["FormSuccess"]
+        </div>
+    }
+    else if (TempData["FormError"] != null)
+    {
+        <div class="bg-red-100 text-red-700 p-4 mt-2 rounded-md">
+            @TempData["FormError"]
+        </div>
+    }
+</div>
