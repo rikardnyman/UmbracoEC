@@ -8,9 +8,9 @@
 
 <partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model" />
 
-@if (Model.ContactSection != null)
+@if (Model.ContactSectionPicker != null)
 {
-    @await Html.PartialAsync("Partials/Components/ContactSection", Model.ContactSection)
+    @await Html.PartialAsync("Partials/Components/ContactSection", Model.ContactSectionPicker)
 }
 
 <section class="relative w-full">
