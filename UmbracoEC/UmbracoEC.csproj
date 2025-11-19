@@ -8,9 +8,10 @@
   <ItemGroup>
     <Content Include="App_Plugins\OnatrixRte\umbraco-package.json" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="16.2.0" />
+    <PackageReference Include="Umbraco.Cms.Persistence.Sqlite" Version="16.2.0" />
   </ItemGroup>
 
   <ItemGroup>

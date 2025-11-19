@@ -2,6 +2,8 @@ using UmbracoEC.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(builder.Environment.ContentRootPath, "umbraco", "Data"));
+
 builder.CreateUmbracoBuilder()
     .AddBackOffice()
     .AddWebsite()
