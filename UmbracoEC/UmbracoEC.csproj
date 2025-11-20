@@ -7,6 +7,59 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="App_Plugins\OnatrixRte\umbraco-package.json" />
+    <Content Include="umbraco\Data\TEMP\DistCache\c63d60ad88e4696d9709f136401c3644d07a2b36-lastsynced.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\DeliveryApiContentIndex\segments.gen" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\DeliveryApiContentIndex\segments_3" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\segments.gen" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\segments_7" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_0.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_0.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_0.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_1.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_1.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_1.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_2.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_2.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_2.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_3.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_3.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_3.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_4.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_4.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_4.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_5.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_5.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\ExternalIndex\_5.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\segments.gen" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\segments_7" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_0.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_0.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_0.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_1.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_1.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_1.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_2.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_2.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_2.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_2_1.del" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_3.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_3.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_3.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_3_2.del" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_4.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_4.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_4.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_4_2.del" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_5.cfe" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_5.cfs" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_5.si" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\InternalIndex\_5_1.del" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\MembersIndex\segments.gen" />
+    <None Include="umbraco\Data\TEMP\ExamineIndexes\MembersIndex\segments_3" />
+    <None Include="umbraco\Data\TEMP\MainDom_ba7af788ef50a74b136da1fe3608ac7d35240dcc.lock" />
+    <None Include="umbraco\Data\Umbraco.sqlite.db" />
   </ItemGroup>
   
   <ItemGroup>
@@ -19,6 +72,11 @@
     <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
     <PackageReference Include="uSync" Version="16.1.0" />
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="umbraco\Data\TEMP\FileUploads\" />
+    <Folder Include="umbraco\Data\TEMP\TemporaryFile\" />
   </ItemGroup>
 
   <PropertyGroup>
